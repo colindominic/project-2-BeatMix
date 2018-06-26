@@ -27,11 +27,17 @@ toggleDrum(kicks, 10);
 console.log(kicks);
 
 function clear (array) {
-  array.forEach(function(element) {
-    element = false;
-    return array;
-  });
+  return array.fill(false);
 }
 
 clear(kicks);
+console.log(kicks);
+
+function invert (array) {
+  for (arrayIndex = 0; arrayIndex < array.length; arrayIndex++) {
+    array[arrayIndex] = !array[arrayIndex];
+  }
+}
+
+invert(kicks);
 console.log(kicks);
