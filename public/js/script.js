@@ -18,26 +18,50 @@ setArrayInitialValuesFalse(rideCymbals);
 //console.log(kicks);
 
 function toggleDrum (array, arrayIndex) {
+  if (!array || arrayIndex > 15 || !arrayIndex){
+    return;
+  }
   return array[arrayIndex] = !array[arrayIndex];
 }
 
-toggleDrum(kicks, 7);
-toggleDrum(kicks, 11);
-toggleDrum(kicks, 10);
-console.log(kicks);
+//toggleDrum(kicks, 7);
+//toggleDrum(kicks, 11);
+//toggleDrum(kicks, 10);
+//console.log(kicks);
 
 function clear (array) {
-  return array.fill(false);
+  if (!array) {
+    return;
+  }
+
+  if (isValidDrumName(array)) {
+    return array.fill(false);
+  } else {
+    return;
+  }
+
 }
 
-clear(kicks);
-console.log(kicks);
+//clear(kicks);
+//console.log(kicks);
 
 function invert (array) {
+  if (!array) {
+    return;
+  }
+
+  if (!isValidDrumName(array)) {
+    return;
+  }
+
   for (arrayIndex = 0; arrayIndex < array.length; arrayIndex++) {
     array[arrayIndex] = !array[arrayIndex];
   }
 }
 
-invert(kicks);
-console.log(kicks);
+function isValidDrumName (drumName) {
+  return (drumName === 'kicks' || drumName === 'snares' || drumName === "hiHats" || drumName === 'rideCymbals');
+}
+
+//invert(kicks);
+//console.log(kicks);
