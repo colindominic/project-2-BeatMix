@@ -65,3 +65,22 @@ function isValidDrumName (drumName) {
 
 //invert(kicks);
 //console.log(kicks);
+
+function getNeighborPads (x, y, size) {
+  let neighbours = [];
+
+  if (x < 0 || x >= size || y < 0 || y >= size || size < 1) {
+    return neighbours;
+  }
+
+  neighbours.push([x - 1, y]);
+  neighbours.push([x + 1, y]);
+  neighbours.push([x, y + 1]);
+  neighbours.push([x, y - 1]);
+
+  return neighbours.filter(function (neighbour) {
+    return neighbour.every(function (value) {
+      return value >= 0 && value < size;
+    });
+  });
+}
